@@ -1,35 +1,31 @@
 import "./Programs.css";
-import program_1 from "../../assets/program-1.png";
-import program_2 from "../../assets/program-2.png";
-import program_3 from "../../assets/program-3.png";
-import program_icons_1 from "../../assets/program-icon-1.png";
-import program_icons_2 from "../../assets/program-icon-2.png";
-import program_icons_3 from "../../assets/program-icon-3.png";
-
+import {
+  program_1,
+  program_2,
+  program_3,
+  program_icon_1,
+  program_icon_2,
+  program_icon_3,
+} from "../../assets";
+// adding assets from index.js
+const programData = [
+  { image: program_1, icon: program_icon_1, title: "Graduation Degree" },
+  { image: program_2, icon: program_icon_2, title: "Master Degree" },
+  { image: program_3, icon: program_icon_3, title: "Post Graduation" },
+];
 const Programs = () => {
   return (
     <div className="programs">
-      <div className="program">
-        <img src={program_1} alt="" />
-        <div className="caption">
-          <img src={program_icons_1} alt="" />
-          <p>Graduation Degree</p>
+      {/* add map and get data from Json */}
+      {programData.map((program, index) => (
+        <div className="program" key={index}>
+          <img src={program.image} alt="" />
+          <div className="caption">
+            <img src={program.icon} alt="" />
+            <p>{program.title}</p>
+          </div>
         </div>
-      </div>
-      <div className="program">
-        <img src={program_2} alt="" />
-        <div className="caption">
-          <img src={program_icons_2} alt="" />
-          <p>Master Degree</p>
-        </div>
-      </div>
-      <div className="program">
-        <img src={program_3} alt="" />
-        <div className="caption">
-          <img src={program_icons_3} alt="" />
-          <p>Post Graduation</p>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
